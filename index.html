@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ふーさんのゲームひろば</title>
+<meta name="description" content="ふーさん🐻のオリジナルブラウザゲームを集めたひろば。スマホで友だちとオンライン対戦・協力プレイ。">
+<meta name="theme-color" content="#f4a640">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ふーさんゲーム">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>
+:root{--ink:#3b2a1a;--cream:#fffaf0;--orange:#f4a640;--brown:#9a5f33;--leaf:#5f9e55;--font:"Hiragino Maru Gothic ProN","Hiragino Sans","M PLUS Rounded 1c","Noto Sans JP",system-ui,sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+html{background:#ffe9b8}
+body{margin:0;font-family:var(--font);color:var(--ink);min-height:100vh;min-height:100dvh;
+  background:radial-gradient(circle at 15% 8%,#fff6d8 0 60px,transparent 61px),radial-gradient(circle at 88% 22%,#fff1c7 0 40px,transparent 41px),linear-gradient(#ffe7a8,#ffd58a 40%,#cfe6b4 100%);background-attachment:fixed}
+.wrap{max-width:960px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 14px calc(30px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;gap:12px;margin:4px 2px 10px}
+header img{width:64px;height:64px;border-radius:18px;box-shadow:0 4px 10px rgba(120,70,20,.25);flex:none}
+h1{margin:0;font-size:24px;line-height:1.2;letter-spacing:.02em;color:#6b3d17;text-shadow:0 2px 0 #fff6}
+h1 small{display:block;font-size:12.5px;font-weight:700;color:#8a5a2b;letter-spacing:0}
+.chips{display:flex;gap:7px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:0;border-radius:999px;padding:8px 14px;font:800 14px var(--font);color:#7a4a20;background:#fff8e6;box-shadow:0 2px 0 #e7c58a;min-height:38px}
+.chip.on{background:var(--brown);color:#fff;box-shadow:0 2px 0 #6b3d17}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media (min-width:920px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{display:flex;gap:12px;align-items:flex-start;text-decoration:none;color:inherit;background:var(--cream);border-radius:20px;padding:13px;border:3px solid #fff;box-shadow:0 5px 0 #e3b873,0 8px 16px rgba(120,70,20,.15);transition:transform .08s}
+.card:active{transform:translateY(3px);box-shadow:0 2px 0 #e3b873,0 4px 10px rgba(120,70,20,.15)}
+.ic{flex:none;width:62px;height:62px;border-radius:18px;display:grid;place-items:center;font-size:36px;background:var(--bg,#ffe3a3)}
+.bd{min-width:0;flex:1}
+.ttl{font-weight:900;font-size:16.5px;line-height:1.3}
+.ttl small{display:block;font-size:12px;font-weight:700;color:#8a6a4a}
+.ds{font-size:13px;line-height:1.45;margin:4px 0 7px;color:#5a4330}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11.5px;font-weight:800;border-radius:8px;padding:3px 7px;background:#f3e6cc;color:#6b4a2a}
+.tag.n{background:#6b3d17;color:#fff}
+.tag.on{background:#d9efff;color:#1f5f8f}.tag.loc{background:#e2f3d6;color:#3e7a32}.tag.co{background:#ffe0e6;color:#a8344f}.tag.vs{background:#fff0c2;color:#8a5a00}.tag.pt{background:#efe2ff;color:#6a3fa0}.tag.cpu{background:#f6e3d0;color:#8a4f1d}
+.go{flex:none;align-self:center;font-size:20px;color:#c4884a}
+.help{margin-top:18px;background:rgba(255,250,240,.9);border-radius:18px;padding:12px 14px;border:3px dashed #e7c58a}
+.help h2{margin:0 0 6px;font-size:16px}
+.help ol{margin:4px 0 0;padding-left:1.3em;font-size:13.5px;line-height:1.6}
+.help p{font-size:13px;line-height:1.55;margin:6px 0}
+#installBtn{display:none;width:100%;margin:6px 0 2px;border:0;border-radius:14px;padding:12px;font:900 16px var(--font);color:#fff;background:linear-gradient(#5fb05a,#3f8c3a);box-shadow:0 4px 0 #2f6a2b}
+#installBtn.show{display:block}
+.os{display:none}.os.show{display:block}
+footer{text-align:center;font-size:12px;color:#7a5a3a;margin-top:16px;line-height:1.6}
+.empty{display:none;text-align:center;padding:20px;font-weight:800;color:#8a5a2b}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="icons/icon-192.png" alt="" width="64" height="64">
+    <h1>ふーさんのゲームひろば<small>🐻 友だちとあそべるオリジナルゲーム集</small></h1>
+  </header>
+  <div class="chips" id="chips" role="tablist" aria-label="しぼりこみ"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">このしぼりこみのゲームはまだないクマ…🐻</div>
+
+  <section class="help" id="help">
+    <h2>📲 ホーム画面に追加するには</h2>
+    <button id="installBtn">🐻 ホーム画面に追加する</button>
+    <div class="os" id="helpIos"><b>iPhone / iPad（Safari）</b><ol><li>画面下（または上）の <b>共有ボタン</b>（□に↑のマーク）をタップ</li><li>メニューの「<b>ホーム画面に追加</b>」をタップ</li><li>右上の「<b>追加</b>」をタップ</li></ol></div>
+    <div class="os" id="helpAndroid"><b>Android（Chrome）</b><ol><li>上の「ホーム画面に追加する」ボタンが出ていればタップ</li><li>ボタンがないときは、右上の <b>︙メニュー</b> →「<b>ホーム画面に追加</b>」（または「アプリをインストール」）</li></ol></div>
+    <div class="os" id="helpDone"><p>✅ ホーム画面から開いています。ゲームからひろばに戻るときは、<b>iPhone は画面の左はしから右へスワイプ</b>（または「完了」）、<b>Android は戻るボタン</b>です。</p></div>
+    <p id="helpOther">スマホのブラウザでこのページを開くと、アプリのようにホーム画面から起動できます。</p>
+  </section>
+  <footer>ゲームはすべてブラウザだけで遊べます（アプリのインストール不要・無料）。<br>オンラインのゲームは部屋を作って、招待URL・QR・部屋コードで友だちを呼ぼう。</footer>
+</div>
+<script>
+(function () {
+  var GAMES = [
+    { path: 'nothanks-online', icon: '🃏', bg: '#ffe0c2', title: 'ノーサンキュー！', desc: 'いらないカードはチップで「ノーサンキュー！」。がまんくらべのカードゲーム', n: '3〜7人', tags: ['on', 'vs', 'cpu'] },
+    { path: 'oboete-order', icon: '☕', bg: '#f3dcc4', title: 'おぼえてオーダー！', sub: '〜ふーさんの森カフェ〜', desc: 'みんなでお客さんの注文をおぼえて、手札をなくそう', n: '2〜6人', tags: ['on', 'co', 'pt'] },
+    { path: 'fuuma-no-toki', icon: '👿', bg: '#e6dcff', title: '封魔の刻', sub: '― 悪魔を目覚めさせるな ―', desc: '2〜99の封印札を4本の列に納めきって、悪魔の復活を止めよう', n: '1〜5人', tags: ['on', 'co'] },
+    { path: 'tatoete-narabe', icon: '💬', bg: '#d7f0ff', title: 'たとえてナラベ！', desc: '数字をことばで「たとえ」て伝えあい、小さい順にならべる協力ゲーム', n: '2〜10人', tags: ['on', 'co', 'pt', 'cpu'] },
+    { path: 'mienai-meiro', icon: '🌙', bg: '#d8def7', title: 'みえない迷路', sub: '〜ふーさんと まほうのしるし〜', desc: '見えない壁の迷路をおぼえて進み、まほうのしるしを集めよう', n: '2〜4人', tags: ['on', 'vs', 'cpu'] },
+    { path: 'moribiraki', icon: '🌲', bg: '#d6efcf', title: 'ふーさんの もりびらき', sub: '〜5つのめぐみで村づくり〜', desc: 'めぐみを集めて交換して、森の島に村をつくろう', n: '3〜4人', tags: ['on', 'loc', 'vs', 'cpu'] },
+    { path: 'oboeteru-watashi', icon: '🍞', bg: '#ffeab8', title: 'ふーです🐻。トーストに塗るのはメイプルシロップです。', desc: '自己紹介して、覚えて、クイズで勝負！', n: '2〜8人', tags: ['on', 'pt', 'cpu'] }
+  ];
+  var TAG = { on: 'オンライン', loc: '1台でも', co: '協力', vs: '対戦', pt: 'パーティー', cpu: '🐻CPUあり' };
+  var FILTERS = [['all', 'すべて'], ['on', '🌐 オンライン'], ['loc', '📱 1台でも'], ['co', '🤝 協力'], ['vs', '⚔️ 対戦'], ['pt', '🎉 パーティー']];
+  var cur = 'all';
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function render() {
+    var list = GAMES.filter(function (g) { return cur === 'all' || g.tags.indexOf(cur) >= 0; });
+    document.getElementById('grid').innerHTML = list.map(function (g) {
+      return '<a class="card" href="/' + g.path + '/?from=portal" data-game="' + g.path + '">' +
+        '<div class="ic" style="--bg:' + g.bg + '" aria-hidden="true">' + g.icon + '</div>' +
+        '<div class="bd"><div class="ttl">' + esc(g.title) + (g.sub ? '<small>' + esc(g.sub) + '</small>' : '') + '</div>' +
+        '<div class="ds">' + esc(g.desc) + '</div><div class="tags"><span class="tag n">👥 ' + g.n + '</span>' +
+        g.tags.map(function (t) { return '<span class="tag ' + t + '">' + TAG[t] + '</span>'; }).join('') + '</div></div><div class="go" aria-hidden="true">▶</div></a>';
+    }).join('');
+    document.getElementById('empty').style.display = list.length ? 'none' : 'block';
+    document.getElementById('chips').innerHTML = FILTERS.map(function (f) { return '<button class="chip' + (f[0] === cur ? ' on' : '') + '" data-f="' + f[0] + '" role="tab" aria-selected="' + (f[0] === cur) + '">' + f[1] + '</button>'; }).join('');
+  }
+  document.getElementById('chips').addEventListener('click', function (e) { var b = e.target.closest('[data-f]'); if (b) { cur = b.dataset.f; render(); } });
+  render();
+
+  // ホーム画面に追加の案内
+  var ua = navigator.userAgent, isIos = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1), isAndroid = /Android/.test(ua);
+  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+  function show(id, on) { document.getElementById(id).classList.toggle('show', !!on); }
+  show('helpDone', standalone);
+  show('helpIos', !standalone && (isIos || !isAndroid));
+  show('helpAndroid', !standalone && (isAndroid || !isIos));
+  document.getElementById('helpOther').style.display = standalone ? 'none' : '';
+  var deferred = null, btn = document.getElementById('installBtn');
+  window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; btn.classList.add('show'); });
+  btn.addEventListener('click', function () { if (!deferred) return; deferred.prompt(); deferred.userChoice.then(function () { deferred = null; btn.classList.remove('show'); }); });
+  window.addEventListener('appinstalled', function () { btn.classList.remove('show'); });
+
+  if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function (e) { console.warn('sw', e); }); });
+})();
+</script>
+</body>
+</html>

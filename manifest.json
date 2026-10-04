@@ -1,0 +1,18 @@
+{
+  "name": "ふーさんのゲームひろば",
+  "short_name": "ふーさんゲーム",
+  "description": "ふーさん🐻のオリジナルブラウザゲームを集めたひろば。オンラインで友だちと遊べます。",
+  "lang": "ja",
+  "id": "/fuusan-games/",
+  "start_url": "/fuusan-games/?source=pwa",
+  "scope": "/fuusan-games/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff6e0",
+  "theme_color": "#f4a640",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
