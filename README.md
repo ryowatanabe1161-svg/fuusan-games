@@ -14,6 +14,7 @@
 | [ふーさんの もりびらき](https://ryowatanabe1161-svg.github.io/moribiraki/) | 3〜4人 | オンライン／1台・対戦 |
 | [ふーです🐻。トーストに塗るのはメイプルシロップです。](https://ryowatanabe1161-svg.github.io/oboeteru-watashi/) | 2〜8人 | オンライン・パーティー |
 | [ひとことヒント 〜かぶったら きえちゃうクマ〜](https://ryowatanabe1161-svg.github.io/hitokoto-hint/) | 2〜8人 | オンライン・協力・パーティー |
+| [角取り陣](https://ryowatanabe1161-svg.github.io/kakutori-jin/) | 2〜4人 | オンライン・対戦 |
 
 ## ホーム画面に追加
 - **iPhone（Safari）**：共有ボタン →「ホーム画面に追加」
