@@ -13,6 +13,7 @@
 | [みえない迷路 〜ふーさんと まほうのしるし〜](https://ryowatanabe1161-svg.github.io/mienai-meiro/) | 2〜4人 | オンライン・対戦 |
 | [ふーさんの もりびらき](https://ryowatanabe1161-svg.github.io/moribiraki/) | 3〜4人 | オンライン／1台・対戦 |
 | [ふーです🐻。トーストに塗るのはメイプルシロップです。](https://ryowatanabe1161-svg.github.io/oboeteru-watashi/) | 2〜8人 | オンライン・パーティー |
+| [ひとことヒント 〜かぶったら きえちゃうクマ〜](https://ryowatanabe1161-svg.github.io/hitokoto-hint/) | 2〜8人 | オンライン・協力・パーティー |
 
 ## ホーム画面に追加
 - **iPhone（Safari）**：共有ボタン →「ホーム画面に追加」
