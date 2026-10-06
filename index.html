@@ -22,8 +22,9 @@ body{margin:0;font-family:var(--font);color:var(--ink);min-height:100vh;min-heig
 .wrap{max-width:960px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 14px calc(30px + env(safe-area-inset-bottom))}
 header{display:flex;align-items:center;gap:12px;margin:4px 2px 10px}
 header img{width:64px;height:64px;border-radius:18px;box-shadow:0 4px 10px rgba(120,70,20,.25);flex:none}
-h1{margin:0;font-size:24px;line-height:1.2;letter-spacing:.02em;color:#6b3d17;text-shadow:0 2px 0 #fff6}
-h1 small{display:block;font-size:12.5px;font-weight:700;color:#8a5a2b;letter-spacing:0}
+.brand{margin:0 0 2px;font-size:14px;font-weight:800;letter-spacing:.12em;line-height:1.2;color:#a86428}
+h1{margin:0;font-size:24px;line-height:1.2;letter-spacing:.02em;color:#6b3d17;text-shadow:0 2px 0 #fff6;white-space:nowrap}
+h1 small{display:block;font-size:12.5px;font-weight:700;color:#8a5a2b;letter-spacing:0;white-space:normal}
 .chips{display:flex;gap:7px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;border:0;border-radius:999px;padding:8px 14px;font:800 14px var(--font);color:#7a4a20;background:#fff8e6;box-shadow:0 2px 0 #e7c58a;min-height:38px}
@@ -51,6 +52,7 @@ h1 small{display:block;font-size:12.5px;font-weight:700;color:#8a5a2b;letter-spa
 #installBtn.show{display:block}
 .os{display:none}.os.show{display:block}
 footer{text-align:center;font-size:12px;color:#7a5a3a;margin-top:16px;line-height:1.6}
+.credit{margin:8px 0 0;text-align:center;font-size:11px;line-height:1.4;color:#b08968}
 .empty{display:none;text-align:center;padding:20px;font-weight:800;color:#8a5a2b}
 </style>
 </head>
@@ -58,7 +60,10 @@ footer{text-align:center;font-size:12px;color:#7a5a3a;margin-top:16px;line-heigh
 <div class="wrap">
   <header>
     <img src="icons/icon-192.png" alt="" width="64" height="64">
-    <h1>ふーさんのゲームひろば<small>🐻 友だちとあそべるオリジナルゲーム集</small></h1>
+    <div>
+      <p class="brand">ふらっとgames</p>
+      <h1>ふーさんのゲームひろば<small>🐻 友だちとあそべるオリジナルゲーム集</small></h1>
+    </div>
   </header>
   <div class="chips" id="chips" role="tablist" aria-label="しぼりこみ"></div>
   <div class="grid" id="grid"></div>
@@ -73,6 +78,7 @@ footer{text-align:center;font-size:12px;color:#7a5a3a;margin-top:16px;line-heigh
     <p id="helpOther">スマホのブラウザでこのページを開くと、アプリのようにホーム画面から起動できます。</p>
   </section>
   <footer>ゲームはすべてブラウザだけで遊べます（アプリのインストール不要・無料）。<br>オンラインのゲームは部屋を作って、招待URL・QR・部屋コードで友だちを呼ぼう。</footer>
+  <p class="credit">制作 watg</p>
 </div>
 <script>
 (function () {
