@@ -18,6 +18,7 @@
 | [いろタイル工房 〜ふーさんの宮殿の壁〜](https://ryowatanabe1161-svg.github.io/iro-tile-koubou/) | 2〜4人 | オンライン・対戦 |
 | [数列陣 〜ふーさんと数字タイルの陣〜](https://ryowatanabe1161-svg.github.io/suuretsu-jin/) | 2〜4人 | オンライン・対戦 |
 | [ななめくり 〜ふーさんの どきどき山札〜](https://ryowatanabe1161-svg.github.io/nanamekuri/) | 2〜8人 | オンライン・対戦・パーティー |
+| [ごもじでピタリ 〜ふーさんの いいかえクイズ〜](https://ryowatanabe1161-svg.github.io/gomoji-pitari/) | 3〜6人 | オンライン・パーティー |
 
 ## ホーム画面に追加
 - **iPhone（Safari）**：共有ボタン →「ホーム画面に追加」
