@@ -19,6 +19,7 @@
 | [数列陣 〜ふーさんと数字タイルの陣〜](https://ryowatanabe1161-svg.github.io/suuretsu-jin/) | 2〜4人 | オンライン・対戦 |
 | [ななめくり 〜ふーさんの どきどき山札〜](https://ryowatanabe1161-svg.github.io/nanamekuri/) | 2〜8人 | オンライン・対戦・パーティー |
 | [ごもじでピタリ 〜ふーさんの いいかえクイズ〜](https://ryowatanabe1161-svg.github.io/gomoji-pitari/) | 3〜6人 | オンライン・パーティー |
+| [ころいろ 〜ふーさんの のこり色にご用心〜](https://ryowatanabe1161-svg.github.io/koroiro/) | 2〜4人 | オンライン・対戦 |
 
 ## ホーム画面に追加
 - **iPhone（Safari）**：共有ボタン →「ホーム画面に追加」
