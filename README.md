@@ -25,6 +25,7 @@
 | [とどけ！こいぶみ 〜ふーさんたちの お城でドキドキ大作戦〜](https://ryowatanabe1161-svg.github.io/todoke-koibumi/) | 2〜6人 | オンライン・対戦 |
 | [すくすくガーデン 〜ふーさんたちの 小さい順ならべ〜](https://ryowatanabe1161-svg.github.io/sukusuku-garden/) | 2〜5人 | オンライン・対戦 |
 | [王国争覇 〜ふーさんたちの デッキ構築バトル〜](https://ryowatanabe1161-svg.github.io/oukoku-souha/) | 2〜4人 | オンライン・対戦 |
+| [ふらっとクリーチャーズ 〜オリジナル モンスターバトル〜](https://ryowatanabe1161-svg.github.io/flat-creatures/) | 1〜2人 | オンライン・対戦 |
 
 ## ホーム画面に追加
 - **iPhone（Safari）**：共有ボタン →「ホーム画面に追加」
