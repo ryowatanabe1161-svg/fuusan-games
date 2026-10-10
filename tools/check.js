@@ -21,7 +21,7 @@ function check(c, m) { if (!c) throw new Error('FAIL: ' + m); console.log('✓',
   }
   const sw = await p.evaluate(async () => { const r = await navigator.serviceWorker.ready; return { scope: r.scope, state: r.active && r.active.state }; });
   check(/\/fuusan-games\/$/.test(sw.scope) && sw.state, 'service worker active, scope ' + sw.scope);
-  const cached = await p.evaluate(async () => (await (await caches.open('fuusan-portal-v16')).keys()).map(r => new URL(r.url).pathname));
+  const cached = await p.evaluate(async () => (await (await caches.open('fuusan-portal-v17')).keys()).map(r => new URL(r.url).pathname));
   check(cached.length >= 8 && cached.every(u => u.startsWith('/fuusan-games/')), 'SW cached portal shell only (' + cached.length + ' files)');
   // CDP manifest parse (installability)
   const cdp = await ctx.newCDPSession(p); const am = await cdp.send('Page.getAppManifest');
