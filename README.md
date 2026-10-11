@@ -28,6 +28,7 @@
 | [ふらっとクリーチャーズ 〜オリジナル モンスターバトル〜](https://ryowatanabe1161-svg.github.io/flat-creatures/) | 1〜2人 | オンライン・対戦 |
 | [幻獣デュエル 〜ネオ・アリーナ〜](https://ryowatanabe1161-svg.github.io/genjuu-duel/) | 1〜2人 | オンライン／1台・対戦 |
 | [ニワトリドリ🐔 〜こっこを そろえて おうちへ帰そう〜](https://ryowatanabe1161-svg.github.io/niwatoridori/) | 2〜6人 | オンライン・対戦 |
+| [しってるっこ 〜こたえを知ってる子が まぎれてる〜](https://ryowatanabe1161-svg.github.io/shitterukko/) | 1〜8人 | オンライン・パーティー |
 
 ## ホーム画面に追加
 - **iPhone（Safari）**：共有ボタン →「ホーム画面に追加」
