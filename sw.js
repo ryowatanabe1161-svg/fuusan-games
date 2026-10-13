@@ -1,5 +1,5 @@
 // ふーさんのゲームひろば — service worker (scope: /fuusan-games/ only; other games on this origin are never intercepted)
-var CACHE = 'fuusan-portal-v21';
+var CACHE = 'fuusan-portal-v22';
 var SHELL = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png', './icons/favicon-32.png'];
 self.addEventListener('install', function (e) { e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); })); });
 self.addEventListener('activate', function (e) {
@@ -10,7 +10,6 @@ self.addEventListener('fetch', function (e) {
   if (req.method !== 'GET' || url.origin !== location.origin) return;
   var base = new URL(self.registration.scope).pathname;            // "/fuusan-games/"
   if (url.pathname.indexOf(base) !== 0) return;                     // safety: never touch other games
-  if (url.pathname.indexOf(base + 'flat-creatures/') === 0) return;  // ひろば内の ゲーム コピーは さわらない（いつも ネットから さいしん）
   if (url.pathname.indexOf(base + 'genjuu-duel/') === 0) return;     // 幻獣デュエルの コピーも おなじく さわらない
   if (req.mode === 'navigate') {                                    // page: network first (always fresh), cache when offline
     e.respondWith(fetch(req).then(function (r) { var cp = r.clone(); caches.open(CACHE).then(function (c) { c.put('./index.html', cp); }); return r; })

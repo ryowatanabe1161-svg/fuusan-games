@@ -25,7 +25,7 @@
 | [とどけ！こいぶみ 〜ふーさんたちの お城でドキドキ大作戦〜](https://ryowatanabe1161-svg.github.io/todoke-koibumi/) | 2〜6人 | オンライン・対戦 |
 | [すくすくガーデン 〜ふーさんたちの 小さい順ならべ〜](https://ryowatanabe1161-svg.github.io/sukusuku-garden/) | 2〜5人 | オンライン・対戦 |
 | [王国争覇 〜ふーさんたちの デッキ構築バトル〜](https://ryowatanabe1161-svg.github.io/oukoku-souha/) | 2〜4人 | オンライン・対戦 |
-| [ふらっとクリーチャーズ 〜オリジナル モンスターバトル〜](https://ryowatanabe1161-svg.github.io/fuusan-games/flat-creatures/)（[単独版](https://ryowatanabe1161-svg.github.io/flat-creatures/)） | 1〜2人 | オンライン・対戦 |
+| [ふらっとクリーチャーズ 〜オリジナル モンスターバトル〜](https://ryowatanabe1161-svg.github.io/flat-creatures/) | 1〜2人 | オンライン・対戦 |
 | [幻獣デュエル 〜ネオ・アリーナ〜](https://ryowatanabe1161-svg.github.io/fuusan-games/genjuu-duel/)（[単独版](https://ryowatanabe1161-svg.github.io/genjuu-duel/)） | 1〜2人 | オンライン／1台・対戦 |
 | [ニワトリドリ🐔 〜こっこを そろえて おうちへ帰そう〜](https://ryowatanabe1161-svg.github.io/niwatoridori/) | 2〜6人 | オンライン・対戦 |
 | [しってるっこ 〜こたえを知ってる子が まぎれてる〜](https://ryowatanabe1161-svg.github.io/shitterukko/) | 1〜8人 | オンライン・パーティー |
