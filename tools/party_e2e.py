@@ -38,12 +38,12 @@ with sync_playwright() as p:
     assert H.evaluate("__sk.hostRoom().code")==code
     H.screenshot(path='/workspace/rooms-work/test/sk_host.png'); G1.screenshot(path='/workspace/rooms-work/test/sk_guest.png')
     assert G1.locator('#fuuPartyBtn').inner_text().startswith('🏠')
-    # host: next game -> nothanks
+    # host: next game -> iranai-kuma
     t0=time.time()
-    H.click('#fuuPartyBtn'); H.click('#fuuPartySheet [data-g="nothanks-online"]')
-    for pg in pages: wait(lambda pg=pg: '/nothanks-online/' in pg.url,20,'nav nothanks')
+    H.click('#fuuPartyBtn'); H.click('#fuuPartySheet [data-g="iranai-kuma"]')
+    for pg in pages: wait(lambda pg=pg: '/iranai-kuma/' in pg.url,20,'nav iranai-kuma')
     wait(lambda: H.evaluate("__nt.hostRoom() && __nt.hostRoom().seats.length")==3,60,'nt seats')
-    log('nothanks: 3 seats','%.1fs'%(time.time()-t0), H.evaluate("__nt.hostRoom().seats.map(s=>s.name).join(',')"))
+    log('iranai-kuma: 3 seats','%.1fs'%(time.time()-t0), H.evaluate("__nt.hostRoom().seats.map(s=>s.name).join(',')"))
     # start a match, check button hidden while playing
     H.click('#startBtn'); H.wait_for_timeout(2000)
     log('during play host btn visible:', H.locator('#fuuPartyBtn').is_visible(), 'phase', H.evaluate('__nt.hostRoom().phase'))

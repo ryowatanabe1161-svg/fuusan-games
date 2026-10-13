@@ -6,7 +6,7 @@
 (function () {
   'use strict';
   var GAMES = [
-    ['shitterukko', '🤫', 'しってるっこ'], ['hentekko-paint', '🖍️', 'へんてこペイント'], ['nothanks-online', '🃏', 'ノーサンキュー！'],
+    ['shitterukko', '🤫', 'しってるっこ'], ['hentekko-paint', '🖍️', 'へんてこペイント'], ['iranai-kuma', '🃏', 'いらないクマ！'],
     ['zurekko', '🐺', 'ずれっこ'], ['oboete-order', '☕', 'おぼえてオーダー！'], ['fuuma-no-toki', '👿', '封魔の刻'],
     ['tatoete-narabe', '💬', 'たとえてナラベ！'], ['mienai-meiro', '🌙', 'みえない迷路'], ['moribiraki', '🌲', 'もりびらき'],
     ['oboeteru-watashi', '🍞', 'おぼえてる私'], ['hitokoto-hint', '💡', 'ひとことヒント'], ['kakutori-jin', '🏯', '角取り陣'],
@@ -16,7 +16,7 @@
     ['niwatoridori', '🐔', 'ニワトリドリ'], ['flat-creatures', '🐲', 'ふらっとクリーチャーズ（2人）'], ['genjuu-duel', '🐉', '幻獣デュエル（2人）']
   ];
   // パーティー対応済みのゲーム（順次ふやす）
-  var READY = ['shitterukko', 'hentekko-paint', 'nothanks-online', 'zurekko', 'todoke-koibumi', 'sukusuku-garden', 'oukoku-souha', 'niwatoridori', 'koroiro', 'nanamekuri', 'gomoji-pitari', 'yobigoe-yakata', 'oboete-order', 'fuuma-no-toki', 'tatoete-narabe', 'mienai-meiro', 'oboeteru-watashi', 'hitokoto-hint', 'kakutori-jin', 'iro-tile-koubou', 'suuretsu-jin', 'moribiraki', 'flat-creatures', 'genjuu-duel'];
+  var READY = ['shitterukko', 'hentekko-paint', 'iranai-kuma', 'zurekko', 'todoke-koibumi', 'sukusuku-garden', 'oukoku-souha', 'niwatoridori', 'koroiro', 'nanamekuri', 'gomoji-pitari', 'yobigoe-yakata', 'oboete-order', 'fuuma-no-toki', 'tatoete-narabe', 'mienai-meiro', 'oboeteru-watashi', 'hitokoto-hint', 'kakutori-jin', 'iro-tile-koubou', 'suuretsu-jin', 'moribiraki', 'flat-creatures', 'genjuu-duel'];
   var HUB = 'fuusan-games';
   var SS = 'fuu-party';
   var Q = new URLSearchParams(location.search);
