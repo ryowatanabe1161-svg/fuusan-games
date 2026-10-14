@@ -1,7 +1,7 @@
 // ふーさんのゲームひろば — service worker (scope: /fuusan-games/ only; other games on this origin are never intercepted)
-var CACHE = 'fuusan-portal-v26';
+var CACHE = 'fuusan-portal-v27';
 var SHELL = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png', './icons/icon-maskable-512.png', './icons/apple-touch-icon.png', './icons/favicon-32.png'];
-self.addEventListener('install', function (e) { e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL); }).then(function () { return self.skipWaiting(); })); });
+self.addEventListener('install', function (e) { e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(SHELL.map(function (u) { return new Request(u, { cache: 'reload' }); })); }).then(function () { return self.skipWaiting(); })); });
 self.addEventListener('activate', function (e) {
   e.waitUntil(caches.keys().then(function (ks) { return Promise.all(ks.filter(function (k) { return k.indexOf('fuusan-portal-') === 0 && k !== CACHE; }).map(function (k) { return caches.delete(k); })); }).then(function () { return self.clients.claim(); }));
 });
@@ -11,7 +11,7 @@ self.addEventListener('fetch', function (e) {
   var base = new URL(self.registration.scope).pathname;            // "/fuusan-games/"
   if (url.pathname.indexOf(base) !== 0) return;                     // safety: never touch other games
   if (req.mode === 'navigate' || /\.js$/.test(url.pathname)) {   // page & scripts (party.js is shared with games): network first                                    // page: network first (always fresh), cache when offline
-    e.respondWith(fetch(req).then(function (r) { var cp = r.clone(); var nav = req.mode === 'navigate'; caches.open(CACHE).then(function (c) { c.put(nav ? './index.html' : req, cp); }); return r; })
+    e.respondWith(fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' }).then(function (r) { var cp = r.clone(); var nav = req.mode === 'navigate'; caches.open(CACHE).then(function (c) { c.put(nav ? './index.html' : req, cp); }); return r; })
       .catch(function () { return caches.match(req.mode === 'navigate' ? './index.html' : req, { ignoreSearch: true }); }));
     return;
   }

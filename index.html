@@ -41,6 +41,7 @@ h1 small{display:block;font-size:12.5px;font-weight:700;color:#8a5a2b;letter-spa
 .ttl{font-weight:900;font-size:16.5px;line-height:1.3}
 .ttl small{display:block;font-size:12px;font-weight:700;color:#8a6a4a}
 .ds{font-size:13px;line-height:1.45;margin:4px 0 7px;color:#5a4330}
+.newb{display:inline-block;background:#ff5a5a;color:#fff;font-size:11px;font-weight:800;border-radius:6px;padding:1px 6px;margin-right:6px;vertical-align:middle}
 .tags{display:flex;flex-wrap:wrap;gap:5px}
 .tag{font-size:11.5px;font-weight:800;border-radius:8px;padding:3px 7px;background:#f3e6cc;color:#6b4a2a}
 .tag.n{background:#6b3d17;color:#fff}
@@ -97,6 +98,7 @@ body.in-party .card:not([data-ok]){opacity:.45}
 <script>
 (function () {
   var GAMES = [
+    { path: 'mojikakushi-battle', icon: '🀄', bg: '#ece6ff', title: 'もじかくしバトル', sub: '〜1文字ずつ攻撃して言葉を当てよう〜', desc: 'お題にそった言葉をこっそりかくして、五十音から1文字ずつ攻撃！ 全部の文字を当てられたら脱落、最後まで残った人の勝ち。🐻🐰🤖😺🐶🦊とも対戦できるよ', n: '2〜5人', tags: ['on', 'pt', 'cpu'], isNew: 1 },
     { path: 'iranai-kuma', icon: '🃏', bg: '#ffe0c2', title: 'いらないクマ！', desc: 'いらないカードはチップで「いらないクマ！」。がまんくらべのカードゲーム', n: '3〜7人', tags: ['on', 'vs', 'cpu'] },
     { path: 'oboete-order', icon: '☕', bg: '#f3dcc4', title: 'おぼえてオーダー！', sub: '〜ふーさんの森カフェ〜', desc: 'みんなでお客さんの注文をおぼえて、手札をなくそう', n: '2〜6人', tags: ['on', 'co', 'pt'] },
     { path: 'fuuma-no-toki', icon: '👿', bg: '#e6dcff', title: '封魔の刻', sub: '― 悪魔を目覚めさせるな ―', desc: '2〜99の封印札を4本の列に納めきって、悪魔の復活を止めよう', n: '1〜5人', tags: ['on', 'co'] },
@@ -119,7 +121,6 @@ body.in-party .card:not([data-ok]){opacity:.45}
     { path: 'flat-creatures', icon: '🐲', bg: '#fff1c9', title: 'ふらっとクリーチャーズ', sub: '〜オリジナル モンスターバトル〜', desc: '110たいのクリーチャーから6たいでチームを組み、わざ・とくせいを選んで3たいでバトル！ CPUとチャンピオンロード、ともだちとオンラインたいせんも', n: '1〜2人', tags: ['on', 'vs', 'cpu'] },
     { path: 'genjuu-duel', icon: '🐉', bg: '#e2e4f7', title: '幻獣デュエル', sub: '〜ネオ・アリーナ〜', desc: '212種のオリジナルカードでデッキを選んで戦うカードデュエル！ 神のカードや04環境モチーフのカードも。CPU対戦、1台で2人、2台でオンライン対戦', n: '1〜2人', tags: ['on', 'loc', 'vs', 'cpu'] },
     { path: 'niwatoridori', icon: '🐔', bg: '#fff1cc', title: 'ニワトリドリ', sub: '〜こっこを そろえて おうちへ帰そう〜', desc: '手札は並べ替え禁止！となり合った同じ数字をまとめて出し、場札を差しこんで手札をそろえる出し切りカードゲーム。🐻🐰🤖😺🐶🦊もCPUで参加', n: '2〜6人', tags: ['on', 'vs', 'cpu'] },
-    { path: 'mojikakushi-battle', icon: '🀄', bg: '#ece6ff', title: 'もじかくしバトル', sub: '〜1文字ずつ攻撃して言葉を当てよう〜', desc: 'お題にそった言葉をこっそりかくして、五十音から1文字ずつ攻撃！ 全部の文字を当てられたら脱落、最後まで残った人の勝ち。🐻🐰🤖😺🐶🦊とも対戦できるよ', n: '2〜5人', tags: ['on', 'pt', 'cpu'] },
     { path: 'hentekko-paint', icon: '🖍️', bg: '#fdeede', title: 'へんてこペイント', sub: '〜線とまるだけで描いて当てよう〜', desc: 'まっすぐな線と まんまるの円だけでお題を描こう！ 画数が少ない絵から公開して、回答者に当ててもらう。🐻🐰🤖😺🐶🦊も描いて答えるよ', n: '3〜6人', tags: ['on', 'pt', 'cpu'] },
     { path: 'shitterukko', icon: '🤫', bg: '#e3ecfb', title: 'しってるっこ', sub: '〜こたえを知ってる子が まぎれてる〜', desc: 'お題を知ってる子がまぎれてる！ はい／いいえ質問でお題を当てて、しってるっこを見やぶろう。学習した🐻🐰🤖😺🐶🦊も参加、🎤声でも質問できる', n: '1〜8人', tags: ['on', 'pt', 'cpu'] }
   ];
@@ -132,7 +133,7 @@ body.in-party .card:not([data-ok]){opacity:.45}
     document.getElementById('grid').innerHTML = list.map(function (g) {
       return '<a class="card" href="' + (g.local ? '/fuusan-games/' : '/') + g.path + '/?from=portal" data-game="' + g.path + '"' + (window.FuuParty && FuuParty.ready.indexOf(g.path) >= 0 ? ' data-ok="1"' : '') + '>' +
         '<div class="ic" style="--bg:' + g.bg + '" aria-hidden="true">' + g.icon + '</div>' +
-        '<div class="bd"><div class="ttl">' + esc(g.title) + (g.sub ? '<small>' + esc(g.sub) + '</small>' : '') + '</div>' +
+        '<div class="bd"><div class="ttl">' + (g.isNew ? '<span class="newb">NEW</span>' : '') + esc(g.title) + (g.sub ? '<small>' + esc(g.sub) + '</small>' : '') + '</div>' +
         '<div class="ds">' + esc(g.desc) + '</div><div class="tags"><span class="tag n">👥 ' + g.n + '</span>' +
         g.tags.map(function (t) { return '<span class="tag ' + t + '">' + TAG[t] + '</span>'; }).join('') + '</div></div><div class="go" aria-hidden="true">▶</div></a>';
     }).join('');
@@ -155,7 +156,7 @@ body.in-party .card:not([data-ok]){opacity:.45}
   btn.addEventListener('click', function () { if (!deferred) return; deferred.prompt(); deferred.userChoice.then(function () { deferred = null; btn.classList.remove('show'); }); });
   window.addEventListener('appinstalled', function () { btn.classList.remove('show'); });
 
-  if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function (e) { console.warn('sw', e); }); });
+  if ('serviceWorker' in navigator) window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js', { scope: './', updateViaCache: 'none' }).then(function (r) { try { r.update(); } catch (e) {} }).catch(function (e) { console.warn('sw', e); }); });
 })();
 </script>
 <script src="vendor/peerjs.min.js"></script>
